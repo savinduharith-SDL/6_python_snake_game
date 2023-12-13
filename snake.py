@@ -1,7 +1,13 @@
 from turtle import Turtle
+
+MOVING_DISTANCE = 20
 class Snake:
     def __init__(self):
         self.segments = []
+        self.initialize_snake()
+        self.head = self.segments[0]
+
+    def initialize_snake(self):
         for i in range(3):
             xpos = i * (-20)
             new_block = Turtle(shape="square")
@@ -15,5 +21,13 @@ class Snake:
             new_y = self.segments[segment_number - 1].ycor()
             self.segments[segment_number].goto(new_x, new_y)
         self.segments[0].forward(20)
-        self.segments[0].left(90)
+
+    def up(self):
+            self.head.setheading(90)
+    def down(self):
+        self.head.setheading(270)
+    def right(self):
+        self.head.setheading(0)
+    def left(self):
+        self.head.setheading(180)
 
