@@ -52,3 +52,12 @@ class Snake:
         new_block.goto(last_segment.xcor(), last_segment.ycor())
         new_block.color("white")
         self.segments.append(new_block)
+
+    def is_collision_happened(self):
+        for segment in self.segments:
+            if segment == self.head:
+                pass
+            elif self.head.distance(segment) < 10:
+                return True
+            else:
+                pass
